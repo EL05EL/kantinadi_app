@@ -20,21 +20,23 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.kantinadi_app"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    // Menyediakan signingConfigs (debug default)
+    signingConfigs {
+        // Biarkan kosong – konfigurasi debug otomatis tersedia
+    }
+
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")   // gunakan kunci debug
+            isMinifyEnabled = false                             // nonaktifkan R8
+            isShrinkResources = false                           // jangan buang resource
         }
     }
 }
