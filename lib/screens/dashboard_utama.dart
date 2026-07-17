@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../utils/colors.dart';
 import '../utils/typography.dart';
 import '../widgets/custom_button.dart';
+import '../providers/user_provider.dart';
 import 'pilih_tenant.dart';
 
 const String deliveryMejaId = 'ffffffff-ffff-ffff-ffff-ffffffffffff';
@@ -18,6 +20,13 @@ class DashboardUtama extends StatelessWidget {
         elevation: 0,
         title: const Text('Kantin ADI'),
         automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.exit_to_app, color: AppColors.black),
+            onPressed: () => _showLogoutConfirmation(context),
+            tooltip: 'Ganti Role',
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -88,6 +97,34 @@ class DashboardUtama extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void _showLogoutConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Ganti Role'),
+        content: const Text('Kembali ke halaman pemilihan role?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: const Text('Batal'),
+          ),
+          TextButton(
+            onPressed: () {
+              // Hapus data user jika ada
+              Provider.of<UserProvider>(context, listen: false).clearUser();
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/role-selection',
+                (route) => false,
+              );
+            },
+            child: const Text('Ya, Kembali'),
+          ),
+        ],
       ),
     );
   }

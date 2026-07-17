@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+// Providers
 import 'providers/meja_provider.dart';
 import 'providers/cart_provider.dart';
 import 'providers/user_provider.dart';
 import 'providers/tenant_provider.dart';
 import 'providers/connectivity_provider.dart';
+import 'providers/order_provider.dart';
+import 'providers/transaction_provider.dart';
+import 'providers/admin_provider.dart';
+
+// Screens (Pelanggan)
 import 'screens/dashboard_utama.dart';
 import 'screens/scan_qr_meja.dart';
 import 'screens/live_status_meja.dart';
@@ -16,14 +23,33 @@ import 'screens/keranjang_belanja.dart';
 import 'screens/form_pemesanan.dart';
 import 'screens/pembayaran.dart';
 import 'screens/exit_kosongkan_meja.dart';
+
+// Screens (Role Selection)
+import 'screens/role_selection_screen.dart';
+
+// Screens (Penjual)
+import 'screens/penjual/dasbor_penjual.dart';
+import 'screens/penjual/manajemen_menu_penjual.dart';
+
+// Screens (Kasir)
+import 'screens/kasir/verifikasi_kasir.dart';
+
+// Screens (Pengelola)
+import 'screens/admin/dashboard_admin.dart';
+import 'screens/admin/laporan_harian.dart';
+import 'screens/admin/manajemen_sewa.dart';
+import 'screens/admin/manajemen_tenant.dart';
+
+// Models
 import 'models/tenant.dart';
+
+// Utilities
 import 'utils/colors.dart';
 import 'widgets/connectivity_banner.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Load .env file
   await dotenv.load(fileName: ".env");
 
   final supabaseUrl = dotenv.env['SUPABASE_URL'] ?? '';
@@ -55,6 +81,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => TenantProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => OrderProvider()),
+        ChangeNotifierProvider(create: (_) => TransactionProvider()),
+        ChangeNotifierProvider(create: (_) => AdminProvider()),
       ],
       child: MaterialApp(
         title: 'Kantin ADI',
@@ -67,15 +96,18 @@ class MyApp extends StatelessWidget {
             secondary: AppColors.black,
           ),
         ),
-        initialRoute: '/',
+        initialRoute: '/role-selection',
         routes: {
           '/': (context) => const ConnectivityBanner(child: DashboardUtama()),
           '/scan': (context) => const ConnectivityBanner(child: ScanQrMeja()),
           '/live-status': (context) =>
               const ConnectivityBanner(child: LiveStatusMeja()),
+          '/role-selection': (context) => const RoleSelectionScreen(),
         },
         onGenerateRoute: (settings) {
           Widget page;
+
+          // Pelanggan routes
           if (settings.name == '/pilih-tenant') {
             final args = settings.arguments as Map<String, String>?;
             page = PilihTenant(
@@ -119,9 +151,40 @@ class MyApp extends StatelessWidget {
             page = ExitKosongkanMeja(
               mejaNomor: args?['mejaNomor'] ?? '',
             );
+          }
+          // Penjual routes
+          else if (settings.name == '/dasbor-penjual') {
+            final args = settings.arguments as Map<String, String>?;
+            page = DasborPenjual(
+              tenantId: args?['tenantId'] ?? '',
+              tenantNama: args?['tenantNama'] ?? '',
+            );
+          } else if (settings.name == '/manajemen-menu') {
+            final args = settings.arguments as Map<String, String>?;
+            page = ManajemenMenuPenjual(
+              tenantId: args?['tenantId'] ?? '',
+            );
+          }
+          // Kasir routes
+          else if (settings.name == '/verifikasi-kasir') {
+            final args = settings.arguments as Map<String, String>?;
+            page = VerifikasiKasir(
+              kasirId: args?['kasirId'] ?? '',
+            );
+          }
+          // Pengelola routes
+          else if (settings.name == '/dashboard-admin') {
+            page = const DashboardAdmin();
+          } else if (settings.name == '/laporan-harian') {
+            page = const LaporanHarian();
+          } else if (settings.name == '/manajemen-sewa') {
+            page = const ManajemenSewa();
+          } else if (settings.name == '/manajemen-tenant') {
+            page = const ManajemenTenant();
           } else {
             return null;
           }
+
           return MaterialPageRoute(
             builder: (context) => ConnectivityBanner(child: page),
           );
