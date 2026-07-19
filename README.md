@@ -1,4 +1,4 @@
-# 🍽️ KantinADI
+# KantinADI
 
 ### Sistem Digitalisasi Kantin ADI Kampus 4 Universitas Ahmad Dahlan
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 📋 Daftar Isi
+## Daftar Isi
 
 - [Tentang Aplikasi](#-tentang-aplikasi)
 - [Ideasi & Latar Belakang](#-ideasi--latar-belakang)
@@ -29,11 +29,11 @@
 
 ---
 
-## 🎯 Tentang Aplikasi
+## Tentang Aplikasi
 
 **KantinADI** adalah aplikasi mobile berbasis Flutter yang mengdigitalisasi seluruh proses transaksi di Kantin ADI Kampus 4 UAD. Aplikasi ini mengubah alur pemesanan manual menjadi pengalaman digital yang **cepat, terintegrasi, dan akurat**.
 
-### 🚀 Perbandingan: Manual vs Digital
+### Perbandingan: Manual vs Digital
 
 | Aspek | Manual Sebelumnya | Digital (KantinADI) |
 |-------|-------------------|---------------------|
@@ -46,9 +46,9 @@
 
 ---
 
-## 💡 Ideasi & Latar Belakang
+## Ideasi & Latar Belakang
 
-### 🔍 Masalah yang Ditemukan
+### Masalah yang Ditemukan
 
 Berdasarkan observasi dan wawancara langsung di Kantin ADI (April–Mei 2026):
 
@@ -63,7 +63,7 @@ Berdasarkan observasi dan wawancara langsung di Kantin ADI (April–Mei 2026):
 | 7 | **Menu Monoton** | Keluhan menu "serba ayam" → kurang variasi | Wawancara Konsumen 3 |
 | 8 | **Lingkungan Tidak Nyaman** | Kantin panas dan padat → mengurangi minat beli | Observasi, Wawancara Konsumen |
 
-### 💡 Solusi yang Ditawarkan
+### Solusi yang Ditawarkan
 
 KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first**:
 
@@ -78,9 +78,9 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-### 👤 Alur Pelanggan
+### Alur Pelanggan
 
 | No | Halaman | Fungsi |
 |----|---------|--------|
@@ -94,19 +94,19 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 | 8 | **Pembayaran** | Rincian pesanan, QRIS/Cash, struk PDF via email/WA |
 | 9 | **Exit & Kosongkan Meja** | Status meja kembali **KOSONG** di live report |
 
-### 🔧 Alur Penjual (Tenant)
+### Alur Penjual (Tenant)
 
 - Notifikasi real-time pesanan baru
 - Dasbor pesanan dengan status: Baru → Sedang Disiapkan → Siap Antar → Selesai
 - Manajemen menu (tambah, ubah, hapus, update ketersediaan)
 
-### 💳 Alur Kasir
+### Alur Kasir
 
 - Verifikasi pembayaran satu klik
 - Audit trail lengkap (ID kasir, timestamp)
 - Integrasi transaksi stand + produk kemasan
 
-### 📊 Alur Pengelola
+### Alur Pengelola
 
 - Rekapitulasi transaksi harian per tenant
 - Perhitungan bagi hasil 10% otomatis
@@ -115,7 +115,7 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 
 ---
 
-## 🌟 Keunikan Aplikasi
+## Keunikan Aplikasi
 
 | Fitur | Deskripsi |
 |-------|-----------|
@@ -130,7 +130,7 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 
 ---
 
-## 🛠️ Teknologi
+## Teknologi
 
 ### Tech Stack
 
@@ -148,12 +148,14 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 | **Font** | Google Fonts (Space Grotesk) | 6.2+ | Konsisten dengan mockup Figma |
 | **Version Control** | Git + GitHub | - | Kolaborasi tim, branching strategy |
 | **Environment** | flutter_dotenv | 5.1+ | Manajemen environment variables |
+
 Disusun oleh: 
 1. Muhammad Faiz Rabbany (2300016083)
 2. Vijay Anjar Pratama (2300016163)
 3. Grandy Tangguh Heldiyan (2400016002)
 4. Muhammad Zaky Hafizan (2400016048)
 5. Fadil Muhammad (2400016049)
+   
 ### Dependencies (pubspec.yaml)
 
 ```yaml
