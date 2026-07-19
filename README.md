@@ -148,7 +148,12 @@ KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first*
 | **Font** | Google Fonts (Space Grotesk) | 6.2+ | Konsisten dengan mockup Figma |
 | **Version Control** | Git + GitHub | - | Kolaborasi tim, branching strategy |
 | **Environment** | flutter_dotenv | 5.1+ | Manajemen environment variables |
-
+Disusun oleh: 
+1. Muhammad Faiz Rabbany (2300016083)
+2. Vijay Anjar Pratama (2300016163)
+3. Grandy Tangguh Heldiyan (2400016002)
+4. Muhammad Zaky Hafizan (2400016048)
+5. Fadil Muhammad (2400016049)
 ### Dependencies (pubspec.yaml)
 
 ```yaml
