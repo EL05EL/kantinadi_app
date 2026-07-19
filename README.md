@@ -67,14 +67,14 @@ Berdasarkan observasi dan wawancara langsung di Kantin ADI (April–Mei 2026):
 
 KantinADI menjawab seluruh masalah tersebut dengan pendekatan **digital‑first**:
 
-- ✅ **QR Code di setiap meja** → pemesanan mandiri tanpa antre
-- ✅ **Pembayaran QRIS terintegrasi** → otomatis terverifikasi
-- ✅ **Dashboard & notifikasi real‑time** → tenant mendapat pesanan instan
-- ✅ **Verifikasi kasir satu klik** → tanpa stempel, dengan audit trail
-- ✅ **Rekapitulasi otomatis** → bagi hasil 10% dan sewa bulanan terhitung
-- ✅ **Sinkronisasi offline** → transaksi tetap terekam meskipun sinyal terganggu
-- ✅ **Pemantauan variasi menu** → pengelola dapat melihat keberagaman menu
-- ✅ **Live Status Meja** → pelanggan bisa cek ketersediaan meja
+- **QR Code di setiap meja** → pemesanan mandiri tanpa antre
+- **Pembayaran QRIS terintegrasi** → otomatis terverifikasi
+- **Dashboard & notifikasi real‑time** → tenant mendapat pesanan instan
+- **Verifikasi kasir satu klik** → tanpa stempel, dengan audit trail
+- **Rekapitulasi otomatis** → bagi hasil 10% dan sewa bulanan terhitung
+- **Sinkronisasi offline** → transaksi tetap terekam meskipun sinyal terganggu
+- **Pemantauan variasi menu** → pengelola dapat melihat keberagaman menu
+- **Live Status Meja** → pelanggan bisa cek ketersediaan meja
 
 ---
 
